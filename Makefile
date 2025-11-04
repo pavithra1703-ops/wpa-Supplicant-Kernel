@@ -244,7 +244,7 @@ ccflags-y += -I./wpa_supplicant-2.11/wpa_supplicant/binder \
 ccflags-y += -I./wpa_supplicant-2.11/wpa_supplicant/dbus \
 ccflags-y += -I./wpa_supplicant-2.11/wpa_supplicant/wpa_gui-qt4 \
 
- 
+ccflags-y += -I ./porting 
 
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
