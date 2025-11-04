@@ -1,0 +1,4 @@
+#ifndef __WOLFSSL_WOLFCRYPT_PWDBASED_H_
+#define __WOLFSSL_WOLFCRYPT_PWDBASED_H_
+
+#endif 

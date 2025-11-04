@@ -1,0 +1,4 @@
+#ifndef __WOLFSSL_WOLFCRYPT_ASN_PUBLIC_H_
+#define __WOLFSSL_WOLFCRYPT_ASN_PUBLIC_H_
+
+#endif 

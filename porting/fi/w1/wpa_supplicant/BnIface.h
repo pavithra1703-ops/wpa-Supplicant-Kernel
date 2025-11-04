@@ -1,0 +1,4 @@
+#ifndef __FI_W1_WPA_SUPPLICANT_BNIFACE_H_
+#define __FI_W1_WPA_SUPPLICANT_BNIFACE_H_
+
+#endif 

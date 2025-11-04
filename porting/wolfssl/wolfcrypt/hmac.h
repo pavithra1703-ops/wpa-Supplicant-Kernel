@@ -1,0 +1,4 @@
+#ifndef __WOLFSSL_WOLFCRYPT_HMAC_H_
+#define __WOLFSSL_WOLFCRYPT_HMAC_H_
+
+#endif 

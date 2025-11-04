@@ -1,0 +1,4 @@
+#ifndef __WOLFSSL_WOLFCRYPT_FIPS_TEST_H_
+#define __WOLFSSL_WOLFCRYPT_FIPS_TEST_H_
+
+#endif 

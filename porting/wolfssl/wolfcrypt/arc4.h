@@ -1,0 +1,4 @@
+#ifndef __WOLFSSL_WOLFCRYPT_ARC4_H_
+#define __WOLFSSL_WOLFCRYPT_ARC4_H_
+
+#endif 

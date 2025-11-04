@@ -1,0 +1,4 @@
+#ifndef __LIBXML_XMLSCHEMASTYPES_H_
+#define __LIBXML_XMLSCHEMASTYPES_H_
+
+#endif 
