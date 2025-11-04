@@ -218,7 +218,8 @@ supplicant_driver-objs:=wpa_supplicant-2.11/wpa_supplicant/config.o \
 	wpa_supplicant-2.11/wpa_supplicant/wpa_passphrase.o \
 	wpa_supplicant-2.11/wpa_supplicant/twt.o \
 
-ccflags-y += -I./wpa_supplicant-2.11/src/utils 
+ccflags-y += -I./wpa_supplicant-2.11/src/utils
+ccflags-y += -I./wpa_supplicant-2.11/src
 ccflags-y += -I./wpa_supplicant-2.11/hs20/client 
 ccflags-y += -I./wpa_supplicant-2.11/src/ap 
 ccflags-y += -I./wpa_supplicant-2.11/src/common 
@@ -244,7 +245,7 @@ ccflags-y += -I./wpa_supplicant-2.11/wpa_supplicant/binder
 ccflags-y += -I./wpa_supplicant-2.11/wpa_supplicant/dbus 
 ccflags-y += -I./wpa_supplicant-2.11/wpa_supplicant/wpa_gui-qt4
 
-ccflags-y += -I ./porting
+ccflags-y += -I./porting
 
  
 
