@@ -218,31 +218,31 @@ supplicant_driver-objs:=wpa_supplicant-2.11/wpa_supplicant/config.o \
 	wpa_supplicant-2.11/wpa_supplicant/wpa_passphrase.o \
 	wpa_supplicant-2.11/wpa_supplicant/twt.o \
 
-ccflags-y += -I./wpa_supplicant-2.11/src/utils
-./wpa_supplicant-2.11/hs20/client
-./wpa_supplicant-2.11/src/ap
-./wpa_supplicant-2.11/src/common
-./wpa_supplicant-2.11/src/crypto
-./wpa_supplicant-2.11/src/drivers
-./wpa_supplicant-2.11/src/eap_common
-./wpa_supplicant-2.11/src/eapol_auth
-./wpa_supplicant-2.11/src/eapol_supp
-./wpa_supplicant-2.11/src/eap_peer
-./wpa_supplicant-2.11/src/eap_server
-./wpa_supplicant-2.11/src/fst
-./wpa_supplicant-2.11/src/l2_packet
-./wpa_supplicant-2.11/src/p2p
-./wpa_supplicant-2.11/src/pae
-./wpa_supplicant-2.11/src/pasn
-./wpa_supplicant-2.11/src/radius
-./wpa_supplicant-2.11/src/rsn_supp
-./wpa_supplicant-2.11/src/tls
-./wpa_supplicant-2.11/src/utils
-./wpa_supplicant-2.11/src/wps
-./wpa_supplicant-2.11/wpa_supplicant
-./wpa_supplicant-2.11/wpa_supplicant/binder
-./wpa_supplicant-2.11/wpa_supplicant/dbus
-./wpa_supplicant-2.11/wpa_supplicant/wpa_gui-qt4
+ccflags-y += -I./wpa_supplicant-2.11/src/utils \
+	./wpa_supplicant-2.11/hs20/client \
+	./wpa_supplicant-2.11/src/ap \
+	./wpa_supplicant-2.11/src/common \
+	./wpa_supplicant-2.11/src/crypto \
+	./wpa_supplicant-2.11/src/drivers \
+	./wpa_supplicant-2.11/src/eap_common \
+	./wpa_supplicant-2.11/src/eapol_auth \
+	./wpa_supplicant-2.11/src/eapol_supp \
+	./wpa_supplicant-2.11/src/eap_peer \
+	./wpa_supplicant-2.11/src/eap_server \
+	./wpa_supplicant-2.11/src/fst \
+	./wpa_supplicant-2.11/src/l2_packet \
+	./wpa_supplicant-2.11/src/p2p \
+	./wpa_supplicant-2.11/src/pae \
+	./wpa_supplicant-2.11/src/pasn \
+	./wpa_supplicant-2.11/src/radius \
+	./wpa_supplicant-2.11/src/rsn_supp \
+	./wpa_supplicant-2.11/src/tls \
+	./wpa_supplicant-2.11/src/utils \
+	./wpa_supplicant-2.11/src/wps \
+	./wpa_supplicant-2.11/wpa_supplicant \
+	./wpa_supplicant-2.11/wpa_supplicant/binder \
+	./wpa_supplicant-2.11/wpa_supplicant/dbus \
+	./wpa_supplicant-2.11/wpa_supplicant/wpa_gui-qt4 \
 
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
