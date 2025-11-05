@@ -51,6 +51,10 @@ static inline long strtol(const char *nptr, char **endptr, int base)
     return val;
 }
 
+static inline int atoi(const char *nptr)
+{
+    return (int)strtol(nptr, NULL, 10);
+}
 
 
 #endif 
