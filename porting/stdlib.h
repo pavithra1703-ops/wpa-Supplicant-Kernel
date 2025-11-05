@@ -13,6 +13,7 @@
 #define calloc(n, size)     kzalloc((n) * (size), GFP_KERNEL)
 #define free(ptr)           kfree((ptr))
 #define realloc(ptr, size)  krealloc((ptr), (size), GFP_KERNEL)
+#define strdup(s) kstrdup((s), GFP_KERNEL)
 
 /* Define NULL if not already defined */
 #ifndef NULL
@@ -49,6 +50,7 @@ static inline long strtol(const char *nptr, char **endptr, int base)
     }
     return val;
 }
+
 
 
 #endif 
