@@ -10,4 +10,10 @@ static inline char *fgets(char *buf, int size, void *stream)
     return NULL;
 }
 
+static inline int setvbuf(void *stream, char *buf, int mode, size_t size)
+{
+    return 0;
+}
+
+
 #endif 
