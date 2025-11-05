@@ -244,9 +244,11 @@ ccflags-y += -I./wpa_supplicant-2.11/wpa_supplicant
 ccflags-y += -I./wpa_supplicant-2.11/wpa_supplicant/binder 
 ccflags-y += -I./wpa_supplicant-2.11/wpa_supplicant/dbus 
 ccflags-y += -I./wpa_supplicant-2.11/wpa_supplicant/wpa_gui-qt4
+ccflags-y += -I./wpa_supplicant-2.11/wpa_supplicant/binder
 
 ccflags-y += -I./porting
 
+ccflags-y += -Wno-frame-larger-than
  
 
 all:
