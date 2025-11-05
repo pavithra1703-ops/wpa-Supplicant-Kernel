@@ -249,6 +249,8 @@ ccflags-y += -I./wpa_supplicant-2.11/wpa_supplicant/binder
 ccflags-y += -I./porting
 
 ccflags-y += -Wno-frame-larger-than
+ccflags-y += -Wno-implicit-fallthrough
+
  
 
 all:
