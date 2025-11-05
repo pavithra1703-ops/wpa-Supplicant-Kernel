@@ -19,5 +19,37 @@
 #define NULL ((void *)0)
 #endif
 
+#include <linux/kernel.h>  // for kstrtol
+#include <linux/string.h>  // for strlen
+
+static inline long strtol(const char *nptr, char **endptr, int base)
+{
+    long val;
+    int ret;
+
+    ret = kstrtol(nptr, base, &val);
+    if (ret < 0) {
+        if (endptr)
+            *endptr = (char *)nptr;
+        return 0;
+    }
+
+    if (endptr) {
+        const char *p = nptr;
+        while (*p) {
+            char c = *p;
+            if ((c >= '0' && c <= '9') ||
+                (base > 10 && ((c >= 'a' && c < 'a'+base-10) || (c >= 'A' && c < 'A'+base-10)))) {
+                p++;
+            } else {
+                break;
+            }
+        }
+        *endptr = (char *)p;
+    }
+    return val;
+}
+
+
 #endif 
 
