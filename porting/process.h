@@ -26,5 +26,15 @@ static inline void exit(int status)
     /* in kernel you might want to do nothing */
 }
 
+/* Stub for waitpid (cannot wait in kernel) */
+static inline int waitpid(int pid, int *status, int options)
+{
+    printk(KERN_INFO "kernel stub: waitpid(%d) called\n", pid);
+    if (status)
+        *status = 0;
+    return pid; /* pretend success */
+}
+
+
 
 #endif 
