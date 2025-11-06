@@ -13,6 +13,11 @@ struct in6_addr {
     unsigned char s6_addr[16];
 };
 
+#define AF_INET 2
+#define AF_INET6 10
+
+
+/* IPv4 conversion */
 static inline char *inet_ntoa(struct in_addr in)
 {
     static char buf[16];
@@ -21,8 +26,36 @@ static inline char *inet_ntoa(struct in_addr in)
     return buf;
 }
 
-#define AF_INET 2
-#define AF_INET6 10
+// IPv6 conversion (colon-separated hex)
+static inline const char *inet_ntop6(const struct in6_addr *in6, char *buf, size_t buflen)
+{
+    int i;
+    char *pos = buf;
+    for (i = 0; i < 16; i += 2) {
+        if (i > 0)
+            *pos++ = ':';
+        pos += snprintf(pos, buflen - (pos - buf), "%x%x", in6->s6_addr[i], in6->s6_addr[i+1]);
+    }
+    return buf;
+}
+
+
+/* Generic inet_ntop for IPv4 and IPv6 */
+static inline const char *inet_ntop(int af, const void *src, char *buf, size_t buflen)
+{
+    if (!src || !buf || buflen == 0)
+        return NULL;
+
+    if (af == AF_INET) {
+        struct in_addr in;
+        in.s_addr = *(uint32_t *)src;
+        return inet_ntoa(in);
+    } else if (af == AF_INET6) {
+        return inet_ntop6((const struct in6_addr *)src, buf, buflen);
+    }
+    return NULL;
+
+}
 
 #endif
 
