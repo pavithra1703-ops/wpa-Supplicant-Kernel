@@ -4,6 +4,20 @@
 #include <linux/sched.h>   // for current and task_struct
 #include <linux/kernel.h>
 
+
+/* Access mode macros */
+#define F_OK 0  /* test for existence of file */
+#define R_OK 4  /* test for read permission */
+#define W_OK 2  /* test for write permission */
+#define X_OK 1  /* test for execute/search permission */
+
+/* Stub access() */
+static inline int access(const char *pathname, int mode)
+{
+    printk(KERN_INFO "stub access(%s, %d)\n", pathname ? pathname : "(null)", mode);
+    return 0;  /* pretend the file always exists */
+}
+
 /* Stub for daemon() — kernel-space no-op */
 static inline int daemon(int nochdir, int noclose)
 {
