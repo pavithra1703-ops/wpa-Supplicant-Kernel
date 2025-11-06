@@ -48,8 +48,8 @@ static inline int clock_gettime(int clk_id, struct timespec *ts)
     }
 
     if (ts) {
-        ts->ts_sec  = kts.tv_sec;   // map to kernel's timespec members
-        ts->ts_nsec = kts.tv_nsec;
+        ts->tv_sec  = kts.tv_sec;   // map to kernel's timespec members
+        ts->tv_nsec = kts.tv_nsec;
     }
     return 0;
 }
