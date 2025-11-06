@@ -18,4 +18,12 @@ static inline int getpid(void)
     return current->pid;   // kernel-space PID of current task
 }
 
+
+/* Stub unlink() for kernel-space */
+static inline int unlink(const char *pathname)
+{
+    printk(KERN_INFO "stub unlink called on: %s\n", pathname ? pathname : "(null)");
+    return 0;  /* pretend success */
+}
+
 #endif 
