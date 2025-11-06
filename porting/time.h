@@ -5,6 +5,8 @@
 #include <linux/timekeeping.h>  // for ktime_get_real_ts64
 #include "timeval.h"             // your kernel-space timeval
 
+typedef long time_t;   /* equivalent to user-space time_t */
+
 /* seconds -> kernel sleep */
 static inline void sleep(unsigned int sec)
 {
