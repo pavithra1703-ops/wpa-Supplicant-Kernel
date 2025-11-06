@@ -57,5 +57,20 @@ static inline const char *inet_ntop(int af, const void *src, char *buf, size_t b
 
 }
 
+/* Convert string IPv4 to struct in_addr */
+static inline int inet_aton(const char *cp, struct in_addr *addr)
+{
+    unsigned int a, b, c, d;
+    if (sscanf(cp, "%u.%u.%u.%u", &a, &b, &c, &d) != 4)
+        return 0;  // invalid format
+
+    if (a > 255 || b > 255 || c > 255 || d > 255)
+        return 0;  // invalid value
+
+    addr->s_addr = (a << 24) | (b << 16) | (c << 8) | d;
+    return 1;  // success
+}
+
+
 #endif
 
