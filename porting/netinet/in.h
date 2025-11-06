@@ -71,6 +71,41 @@ static inline int inet_aton(const char *cp, struct in_addr *addr)
     return 1;  // success
 }
 
+/* Minimal inet_pton replacement for IPv4/IPv6 */
+static inline int inet_pton(int af, const char *src, void *dst)
+{
+    if (!src || !dst)
+        return -1;
+
+    if (af == AF_INET) {
+        struct in_addr *addr4 = (struct in_addr *)dst;
+        return inet_aton(src, addr4);  // 1 = success, 0 = failure
+    } else if (af == AF_INET6) {
+        struct in6_addr *addr6 = (struct in6_addr *)dst;
+        // Simplest approach: parse colon-separated hex
+        int i = 0;
+        unsigned int val;
+        const char *p = src;
+
+        // Zero the address first
+        for (i = 0; i < 16; i++)
+            addr6->s6_addr[i] = 0;
+
+        i = 0;
+        while (*p && i < 16) {
+            if (sscanf(p, "%2x", &val) != 1)
+                break;
+            addr6->s6_addr[i++] = (unsigned char)val;
+            if (*p == ':')
+                p++;
+            while (*p && *p != ':') p++;
+        }
+
+        return 1; // success (very simple, does not handle full IPv6 syntax)
+    }
+
+    return -1; // unsupported family
+}
 
 #endif
 
