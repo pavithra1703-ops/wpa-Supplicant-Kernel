@@ -42,6 +42,19 @@ static inline int setvbuf(void *stream, char *buf, int mode, size_t size)
     return 0;
 }
 
+/* Stub fseek and ftell */
+static inline int fseek(FILE *f, long offset, int whence)
+{
+    printk(KERN_INFO "stub fseek called: offset=%ld, whence=%d\n", offset, whence);
+    return 0;  /* pretend success */
+}
+
+static inline long ftell(FILE *f)
+{
+    printk(KERN_INFO "stub ftell called\n");
+    return 0;  /* pretend start of file */
+}
+
 /* Define stdout as NULL to avoid undeclared variable errors */
 #ifndef stdout
 #define stdout NULL
