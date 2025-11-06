@@ -31,5 +31,27 @@ static inline int gettimeofday(struct timeval *tv, void *tz)
 }
 
 
+/* Kernel-space replacement for clock_gettime() */
+static inline int clock_gettime(int clk_id, struct timespec *ts)
+{
+    struct timespec64 kts;
+
+    switch (clk_id) {
+        case 0: /* CLOCK_REALTIME */
+            ktime_get_real_ts64(&kts);
+            break;
+        case 1: /* CLOCK_MONOTONIC */
+            ktime_get_ts64(&kts);
+            break;
+        default:
+            return -1; /* unsupported clock */
+    }
+
+    if (ts) {
+        ts->ts_sec  = kts.tv_sec;   // map to kernel's timespec members
+        ts->ts_nsec = kts.tv_nsec;
+    }
+    return 0;
+}
 
 #endif 
