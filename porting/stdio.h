@@ -61,6 +61,14 @@ static inline long ftell(FILE *f)
     return 0;  /* pretend start of file */
 }
 
+/* Stub fflush to satisfy linker */
+static inline int fflush(FILE *stream)
+{
+    printk(KERN_INFO "stub fflush(%p)\n", stream);
+    return 0;  /* pretend success */
+}
+
+
 /* Define stdout as NULL to avoid undeclared variable errors */
 #ifndef stdout
 #define stdout NULL
