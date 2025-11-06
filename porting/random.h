@@ -13,5 +13,14 @@ static inline int random(void)
     return (int)val;
 }
 
+/* Stub for srandom() */
+static inline void srandom(unsigned int seed)
+{
+    /* Do nothing, kernel RNG handled differently */
+    printk(KERN_INFO "stub srandom called with seed=%u\n", seed);
+}
+
+
+
 #endif
 
