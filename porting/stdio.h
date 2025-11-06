@@ -68,6 +68,19 @@ static inline int fflush(FILE *stream)
     return 0;  /* pretend success */
 }
 
+/* Stub fileno to satisfy linker */
+static inline int fileno(FILE *stream)
+{
+    printk(KERN_INFO "stub fileno(%p)\n", stream);
+    return 0;  /* dummy file descriptor */
+}
+
+/* Stub fdatasync to satisfy linker */
+static inline int fdatasync(int fd)
+{
+    printk(KERN_INFO "stub fdatasync(%d)\n", fd);
+    return 0;  /* pretend success */
+}
 
 /* Define stdout as NULL to avoid undeclared variable errors */
 #ifndef stdout
