@@ -3,6 +3,15 @@
 
 typedef void  FILE;
 
+#include <linux/printk.h>
+
+/* Stub fread() for kernel space */
+static inline size_t fread(void *ptr, size_t size, size_t nmemb, void *stream)
+{
+    printk(KERN_INFO "stub fread called: size=%zu nmemb=%zu\n", size, nmemb);
+    return nmemb;  // pretend we read everything
+}
+
 /* Stub fopen/fclose/fprintf to satisfy linker */
 static inline FILE *fopen(const char *path, const char *mode)
 {
