@@ -108,4 +108,12 @@ static inline struct tm *localtime(const time_t *timep)
     return &tmres;
 }
 
+/* Kernel-space replacement for gmtime() (UTC time) */
+static inline struct tm *gmtime(const time_t *timep)
+{
+    static struct tm tmres;
+    time64_to_tm(*timep, 0, &tmres);  // Convert seconds to struct tm (UTC)
+    return &tmres;
+}
+
 #endif 
