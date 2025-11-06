@@ -9,5 +9,11 @@ struct timeval {
     long tv_usec;  /* microseconds */
 };
 
+struct timespec {
+    long ts_sec;   /* seconds */
+    long ts_nsec;  /* nanoseconds */
+};
+
+
 #endif /* __TIMEVAL_H_ */
 
