@@ -3,6 +3,24 @@
 
 typedef void  FILE;
 
+/* Stub fopen/fclose/fprintf to satisfy linker */
+static inline FILE *fopen(const char *path, const char *mode)
+{
+    printk(KERN_INFO "stub fopen(%s, %s)\n", path ? path : "(null)", mode ? mode : "(null)");
+    return NULL;   /* pretend failure or no file created */
+}
+
+static inline int fclose(FILE *f)
+{
+    return 0;
+}
+
+static inline int fprintf(FILE *f, const char *fmt, ...)
+{
+    /* no output, just return 0 to keep caller happy */
+    return 0;
+}
+
 /* Minimal stub for fgets */
 static inline char *fgets(char *buf, int size, void *stream)
 {
