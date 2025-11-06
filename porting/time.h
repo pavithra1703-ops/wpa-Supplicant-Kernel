@@ -56,4 +56,44 @@ static inline int clock_gettime(int clk_id, struct timespec *ts)
     return 0;
 }
 
+
+/* Minimal kernel-space replacement for mktime() */
+static inline time_t mktime(const struct tm *tm)
+{
+    static const int days_in_month[12] = {
+        31,28,31,30,31,30,31,31,30,31,30,31
+    };
+
+    int year = tm->tm_year + 1900;
+    int month = tm->tm_mon;
+    int day = tm->tm_mday;
+    int hour = tm->tm_hour;
+    int min = tm->tm_min;
+    int sec = tm->tm_sec;
+
+    // Days since epoch
+    long days = 0;
+
+    // Count years
+    for (int y = 1970; y < year; y++) {
+        days += 365;
+        if ((y % 4 == 0 && y % 100 != 0) || (y % 400 == 0)) {
+            days += 1; // leap year
+        }
+    }
+
+    // Count months
+    for (int m = 0; m < month; m++) {
+        days += days_in_month[m];
+        if (m == 1 && ((year % 4 == 0 && year % 100 != 0) || (year % 400 == 0))) {
+            days += 1; // February in leap year
+        }
+    }
+
+    days += day - 1;
+
+    return days * 24 * 3600 + hour * 3600 + min * 60 + sec;
+}
+
+
 #endif 
