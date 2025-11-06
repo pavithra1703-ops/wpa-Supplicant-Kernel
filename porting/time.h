@@ -3,9 +3,12 @@
 
 #include <linux/delay.h>
 #include <linux/timekeeping.h>  // for ktime_get_real_ts64
+#include <linux/time.h> 
 #include "timeval.h"             // your kernel-space timeval
 
 typedef long time_t;   /* equivalent to user-space time_t */
+
+
 
 /* seconds -> kernel sleep */
 static inline void sleep(unsigned int sec)
@@ -95,5 +98,14 @@ static inline time_t mktime(const struct tm *tm)
     return days * 24 * 3600 + hour * 3600 + min * 60 + sec;
 }
 
+
+
+/* Minimal localtime replacement */
+static inline struct tm *localtime(const time_t *timep)
+{
+    static struct tm tmres;
+    time64_to_tm(*timep, 0, &tmres);  // ✅ kernel provides this helper
+    return &tmres;
+}
 
 #endif 
