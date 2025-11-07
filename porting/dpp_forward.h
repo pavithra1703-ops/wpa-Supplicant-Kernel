@@ -4,13 +4,14 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include "stdlib.h"
 
 /* ------------------------------
  * Minimal struct and enum stubs
  * ------------------------------ */
 
 // Stub for wpabuf type
-struct wpabuf;
+//struct wpabuf;
 
 /* DPP authentication context (stub for kernel port) */
 struct dpp_authentication {
@@ -37,13 +38,13 @@ struct wpa_ip_addr {
 
 /* DPP bootstrap info struct (minimal, just to avoid undefined errors) */
 struct dpp_bootstrap_info {
-    char *uri;
+    void *uri;
     char *info;
-    char *chan;
-    struct wpa_ip_addr host;  // change from char* to struct wpa_ip_addr
-    char *pk;
+    void *chan;
+    void *host;  
+    void *pk;
     void *pubkey;
-    char *configurator_params;
+    void *configurator_params;
 
     bool channels_listed;
     size_t num_freq;
