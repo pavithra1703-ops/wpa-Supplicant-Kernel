@@ -18,4 +18,11 @@ static inline void (*signal(int signum, void (*handler)(int)))(int)
 }
 
 
+/* Stub alarm() function */
+static inline unsigned int alarm(unsigned int seconds)
+{
+    printk(KERN_INFO "stub alarm(%u) called in kernel-space, ignored\n", seconds);
+    return 0;  // return previous alarm (0 = none)
+}
+
 #endif 
