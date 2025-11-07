@@ -10,8 +10,6 @@
  * Minimal struct and enum stubs
  * ------------------------------ */
 
-// Stub for wpabuf type
-//struct wpabuf;
 
 /* DPP authentication context (stub for kernel port) */
 struct dpp_authentication {
@@ -66,6 +64,7 @@ struct dpp_bootstrap_info {
 #define DPP_TCP_PORT 8888  // arbitrary placeholder value for compilation
 #define DPP_ATTR_WRAPPED_DATA 0x05      // arbitrary value for compilation
 #define DPP_BOOTSTRAP_MAX_FREQ 16       // match size of freq array
+#define DPP_ATTR_STATUS 2  // assign a value; it just needs to exist for compilation
 
 
 /* ------------------------------
