@@ -65,7 +65,7 @@ struct dpp_bootstrap_info {
 #define DPP_ATTR_WRAPPED_DATA 0x05      // arbitrary value for compilation
 #define DPP_BOOTSTRAP_MAX_FREQ 16       // match size of freq array
 #define DPP_ATTR_STATUS 2  // assign a value; it just needs to exist for compilation
-
+#define DPP_ATTR_R_BOOTSTRAP_KEY_HASH      3  // Assign the original value from upstream
 
 /* ------------------------------
  * Function prototypes
