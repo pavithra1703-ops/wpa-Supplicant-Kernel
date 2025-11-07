@@ -45,6 +45,8 @@ struct dpp_bootstrap_info {
     size_t num_freq;
     unsigned int freq[16]; // arbitrary size for kernel stub
     uint8_t mac_addr[6];
+
+    unsigned int supported_curves; 
 };
 
 
