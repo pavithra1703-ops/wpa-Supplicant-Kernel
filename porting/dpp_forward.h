@@ -69,5 +69,13 @@ int dpp_parse_uri_mac(struct dpp_bootstrap_info *bi, const char *mac);
 
 /* Add other stub prototypes here if needed by dpp.c */
 
+
+/* dpp attribute helpers */
+typedef uint8_t u8;
+typedef uint16_t u16;
+
+const u8 *dpp_get_attr(const u8 *buf, size_t len, u16 req_id, u16 *ret_len);
+int dpp_check_attrs(const u8 *buf, size_t len);
+
 #endif /* __DPP_FORWARD_H_ */
 
