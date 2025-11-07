@@ -4,6 +4,12 @@
 #include <stddef.h>  // for size_t
 #include <stdint.h>  // for u8, u16
 
+
+// Minimal DPP attribute IDs
+#define DPP_ATTR_WRAPPED_DATA 1
+#define DPP_ATTR_AUTHENTICATOR 2
+#define DPP_ATTR_BOOTSTRAP_KEY_HASH 3
+
 struct dpp_authentication {
     void *msg_ctx;
 };
