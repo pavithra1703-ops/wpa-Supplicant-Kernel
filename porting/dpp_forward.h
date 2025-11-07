@@ -10,6 +10,19 @@
 #define DPP_ATTR_AUTHENTICATOR 2
 #define DPP_ATTR_BOOTSTRAP_KEY_HASH 3
 
+
+// Minimal stub for dpp_bootstrap_info
+struct dpp_bootstrap_info {
+    void *uri;
+    void *info;
+    void *chan;
+    void *host;
+    void *pk;
+    void *pubkey;
+    void *configurator_params;
+};
+
+
 struct dpp_authentication {
     void *msg_ctx;
 };
