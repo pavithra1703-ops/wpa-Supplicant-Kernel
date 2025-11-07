@@ -66,6 +66,9 @@ const char *dpp_bootstrap_type_txt(enum dpp_bootstrap_type type);
 
 int dpp_parse_uri_chan_list(struct dpp_bootstrap_info *bi, const char *uri);
 int dpp_parse_uri_mac(struct dpp_bootstrap_info *bi, const char *mac);
+int dpp_parse_uri_info(struct dpp_bootstrap_info *bi, const char *info);       /* add this */
+int dpp_parse_uri_version(struct dpp_bootstrap_info *bi, const char *version); /* add this */
+
 
 /* Add other stub prototypes here if needed by dpp.c */
 
