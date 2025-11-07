@@ -21,6 +21,16 @@ static inline void srandom(unsigned int seed)
 }
 
 
+static inline void random_init_stub(const char *entropy_file)
+{
+    /* Kernel-space: ignore the entropy_file */
+    (void)entropy_file;
+}
+
+#ifdef __KERNEL__
+#define random_init random_init_stub
+#endif
+
 
 #endif
 
