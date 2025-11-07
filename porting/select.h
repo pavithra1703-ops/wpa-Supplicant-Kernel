@@ -27,5 +27,14 @@
 #define FD_ISSET(fd, set)  0
 #endif
 
+
+static inline int select(int nfds, void *readfds, void *writefds,
+                         void *exceptfds, void *timeout)
+{
+    printk(KERN_INFO "stub select() called in kernel-space, ignored\n");
+    return 0; // 0 = no descriptors ready
+}
+
+
 #endif 
 
