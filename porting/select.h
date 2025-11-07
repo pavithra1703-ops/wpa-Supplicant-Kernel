@@ -12,7 +12,7 @@
 
 /* Define macros only if missing */
 #ifndef FD_ZERO
-#define FD_ZERO(set)   do { if (set) (set)->fds_bits[0] = 0; } while (0)
+#define FD_ZERO(set)   ((void)((set)->fds_bits[0] = 0))
 #endif
 
 #ifndef FD_SET
