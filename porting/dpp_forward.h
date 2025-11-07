@@ -32,6 +32,14 @@ enum dpp_bootstrap_type {
     DPP_BOOTSTRAP_NFC_URI
 };
 
+/* New dummy enum for status */
+enum dpp_status_error {
+    DPP_STATUS_OK,
+    DPP_STATUS_ERROR_GENERIC,
+    DPP_STATUS_ERROR_AUTH,
+    DPP_STATUS_ERROR_CONFIG
+};
+
 struct wpa_ip_addr {
     int dummy; // minimal placeholder for compilation
 };
