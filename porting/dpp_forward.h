@@ -31,12 +31,16 @@ enum dpp_bootstrap_type {
     DPP_BOOTSTRAP_NFC_URI
 };
 
+struct wpa_ip_addr {
+    int dummy; // minimal placeholder for compilation
+};
+
 /* DPP bootstrap info struct (minimal, just to avoid undefined errors) */
 struct dpp_bootstrap_info {
     char *uri;
     char *info;
     char *chan;
-    char *host;
+    struct wpa_ip_addr host;  // change from char* to struct wpa_ip_addr
     char *pk;
     void *pubkey;
     char *configurator_params;
