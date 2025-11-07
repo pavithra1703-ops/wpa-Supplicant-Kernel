@@ -50,7 +50,7 @@ struct dpp_bootstrap_info {
     int port; 
 };
 
-
+#define DPP_TCP_PORT 8888  // arbitrary placeholder value for compilation
 #define DPP_ATTR_WRAPPED_DATA 0x05      // arbitrary value for compilation
 #define DPP_BOOTSTRAP_MAX_FREQ 16       // match size of freq array
 
