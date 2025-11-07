@@ -47,6 +47,11 @@ struct dpp_bootstrap_info {
     uint8_t mac_addr[6];
 };
 
+
+#define DPP_ATTR_WRAPPED_DATA 0x05      // arbitrary value for compilation
+#define DPP_BOOTSTRAP_MAX_FREQ 16       // match size of freq array
+
+
 /* ------------------------------
  * Function prototypes
  * ------------------------------ */
