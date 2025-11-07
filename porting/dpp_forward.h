@@ -69,7 +69,11 @@ int dpp_parse_uri_mac(struct dpp_bootstrap_info *bi, const char *mac);
 int dpp_parse_uri_info(struct dpp_bootstrap_info *bi, const char *info);       /* add this */
 int dpp_parse_uri_version(struct dpp_bootstrap_info *bi, const char *version); /* add this */
 
-
+static inline int dpp_get_subject_public_key(struct dpp_bootstrap_info *bi,
+                                             const u8 *data, size_t data_len) {
+    (void)bi; (void)data; (void)data_len;
+    return 0;
+}
 /* Add other stub prototypes here if needed by dpp.c */
 
 
