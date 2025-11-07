@@ -30,6 +30,13 @@ const uint8_t *dpp_get_attr(const uint8_t *buf, size_t len,
 
 int dpp_check_attrs(const uint8_t *buf, size_t len);
 
+// Forward declaration of dpp_bootstrap_info struct
+struct dpp_bootstrap_info;
+
+// Forward declaration of function
+void dpp_bootstrap_info_free(struct dpp_bootstrap_info *info);
+
+
 
 #endif // __DPP_FORWARD_H_
 
