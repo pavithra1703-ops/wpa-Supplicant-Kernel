@@ -10,6 +10,7 @@
  * Minimal struct and enum stubs
  * ------------------------------ */
 
+#define DPP_VERSION 3  /* needed for compilation */
 
 /* DPP authentication context (stub for kernel port) */
 struct dpp_authentication {
@@ -21,6 +22,8 @@ struct dpp_authentication {
     unsigned int num_freq;
     unsigned int curr_freq;
     unsigned int freq_idx;        /* Index for iterating over freq[] */
+     
+    int af; 
 };
 
 /* DPP public action frame type (minimal enum for compilation) */
