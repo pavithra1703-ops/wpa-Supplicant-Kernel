@@ -164,6 +164,21 @@ void dpp_write_gas_query(struct wpabuf *buf, struct wpabuf *query);
 
 struct wpabuf *dpp_build_conf_req(struct dpp_authentication *auth,
                                   const char *json);
+/* Additional prototypes to fix missing declarations */
+struct wpabuf *dpp_build_conf_req_helper(struct dpp_authentication *auth,
+                                         const char *json,
+                                         enum dpp_netrole netrole,
+                                         const char *connector,
+                                         int *opclass,
+                                         const char *extra,
+                                         const char *curve);
+
+struct wpabuf *dpp_build_conf_req(struct dpp_authentication *auth,
+                                  const char *json);
+
+struct dpp_configuration *dpp_configuration_alloc(const char *type);
+
+const char *dpp_netrole_str(enum dpp_netrole netrole);
 
 
 #endif /* __DPP_FORWARD_H_ */
