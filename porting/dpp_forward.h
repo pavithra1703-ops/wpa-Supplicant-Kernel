@@ -200,12 +200,12 @@ struct dpp_configuration {
 /* ------------------------------
  * DPP AKM (Authentication and Key Management) constants
  * ------------------------------ */
-#define DPP_AKM_PSK             1
-#define DPP_AKM_SAE             2
+//#define DPP_AKM_PSK             1
+//#define DPP_AKM_SAE             2
 #define DPP_AKM_PSK_SAE         3
 #define DPP_AKM_SAE_DPP         4
 #define DPP_AKM_PSK_SAE_DPP     5
-#define DPP_AKM_DPP             6
+//#define DPP_AKM_DPP             6
 #define DPP_AKM_DOT1X           7
 
 /* ------------------------------
@@ -224,6 +224,26 @@ static inline void dpp_configuration_free(struct dpp_configuration *conf)
         free(conf->connector);
     free(conf);
 }
+
+/* ------------------------------
+ * DPP AKM (Authentication & Key Management) types
+ * ------------------------------ */
+enum dpp_akm {
+    DPP_AKM_UNKNOWN = 0,
+    DPP_AKM_PSK,
+    DPP_AKM_SAE,
+    DPP_AKM_DPP,
+    DPP_AKM_LEGACY,
+    DPP_AKM_VER2
+};
+
+/* Function prototypes */
+int dpp_akm_psk(enum dpp_akm akm);
+int dpp_akm_sae(enum dpp_akm akm);
+int dpp_akm_legacy(enum dpp_akm akm);
+int dpp_akm_dpp(enum dpp_akm akm);
+int dpp_akm_ver2(enum dpp_akm akm);
+int dpp_configuration_valid(const struct dpp_configuration *conf);
 
 
 #endif /* __DPP_FORWARD_H_ */
