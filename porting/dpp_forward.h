@@ -20,6 +20,7 @@ struct dpp_authentication {
     unsigned int freq[50];
     unsigned int num_freq;
     unsigned int curr_freq;
+    unsigned int freq_idx;        /* Index for iterating over freq[] */
 };
 
 /* DPP public action frame type (minimal enum for compilation) */
