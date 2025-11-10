@@ -6,9 +6,11 @@
 #include <stdbool.h>
 #include "stdlib.h"
 
+
 /* ------------------------------
  * Minimal struct and enum stubs
  * ------------------------------ */
+
 
 struct dpp_host {
     int af;   /* Address family: AF_INET, AF_INET6, etc. */
@@ -20,7 +22,7 @@ struct dpp_bootstrap_info {
     void *uri;
     char *info;
     void *chan;
-    struct dpp_host *host;
+    struct hostapd_ip_addr *host;
     void *pk;
     void *pubkey;
     void *configurator_params;
