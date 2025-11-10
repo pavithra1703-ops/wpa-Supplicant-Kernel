@@ -180,6 +180,35 @@ struct dpp_configuration *dpp_configuration_alloc(const char *type);
 
 const char *dpp_netrole_str(enum dpp_netrole netrole);
 
+/* ------------------------------
+ * Stub for dpp_configuration
+ * ------------------------------ */
+struct dpp_configuration {
+    int akm;  /* authentication key management */
+    char *ssid;
+    char *passphrase;
+    char *connector;
+    bool ssid_utf8;
+    int ssid_len;
+    int netaccesskey_expiry;
+    bool configurator;
+    bool conf_resp;
+    bool conf_complete;
+    /* other fields can be added as needed */
+};
+
+/* ------------------------------
+ * DPP AKM (Authentication and Key Management) constants
+ * ------------------------------ */
+#define DPP_AKM_PSK             1
+#define DPP_AKM_SAE             2
+#define DPP_AKM_PSK_SAE         3
+#define DPP_AKM_SAE_DPP         4
+#define DPP_AKM_PSK_SAE_DPP     5
+#define DPP_AKM_DPP             6
+#define DPP_AKM_DOT1X           7
+
+
 
 #endif /* __DPP_FORWARD_H_ */
 
