@@ -19,11 +19,11 @@ struct dpp_host {
 
 /* DPP bootstrap info struct (minimal, just to avoid undefined errors) */
 struct dpp_bootstrap_info {
-    void *uri;
+    char *uri;
     char *info;
-    void *chan;
+    char *chan;
     struct hostapd_ip_addr *host;
-    void *pk;
+    char *pk;
     void *pubkey;
     void *configurator_params;
 
