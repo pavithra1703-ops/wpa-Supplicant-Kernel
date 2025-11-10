@@ -5,7 +5,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "stdlib.h"
-
+ 
 
 /* ------------------------------
  * Minimal struct and enum stubs
@@ -85,6 +85,13 @@ enum dpp_status_error {
     DPP_STATUS_ERROR_CONFIG
 };
 
+//Local copy of dpp_netrole enum
+enum dpp_netrole {
+    DPP_NETROLE_UNKNOWN = 0,
+    DPP_NETROLE_CONFIGURATOR = 1,
+    DPP_NETROLE_ENROLLEE = 2
+};
+
 struct wpa_ip_addr {
     int dummy; // minimal placeholder for compilation
 };
@@ -150,6 +157,13 @@ int dpp_prepare_channel_list(struct dpp_authentication *auth,
                              unsigned int opclass,
                              struct hostapd_hw_modes *modes,
                              u16 num_modes);
+void dpp_write_adv_proto(struct wpabuf *buf);
+void dpp_write_gas_query(struct wpabuf *buf, struct wpabuf *query);
+
+
+
+struct wpabuf *dpp_build_conf_req(struct dpp_authentication *auth,
+                                  enum dpp_netrole netrole);
 
 
 #endif /* __DPP_FORWARD_H_ */
