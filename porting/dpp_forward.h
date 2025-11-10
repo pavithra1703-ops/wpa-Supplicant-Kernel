@@ -79,6 +79,7 @@ struct wpa_ip_addr {
 };
 
 
+
 #define DPP_TCP_PORT 8888  // arbitrary placeholder value for compilation
 #define DPP_ATTR_WRAPPED_DATA 0x05      // arbitrary value for compilation
 #define DPP_BOOTSTRAP_MAX_FREQ 16       // match size of freq array
@@ -124,10 +125,15 @@ struct dpp_global;   /* forward declaration */
 /* Declare prototypes of functions implemented in dpp.c */
 void dpp_build_attr_status(struct wpabuf *msg, enum dpp_status_error status);
 void dpp_build_attr_r_bootstrap_key_hash(struct wpabuf *msg, const u8 *hash);
-int dpp_prepare_channel_list(struct dpp_authentication *auth,
-                             struct wpabuf *buf, const char *country);
 int dpp_gen_uri(struct dpp_bootstrap_info *bi);
 struct dpp_authentication *dpp_alloc_auth(struct dpp_global *dpp, void *msg_ctx);
+
+struct hostapd_hw_modes;  /* forward declaration */
+
+int dpp_prepare_channel_list(struct dpp_authentication *auth,
+                             unsigned int opclass,
+                             struct hostapd_hw_modes *modes,
+                             u16 num_modes);
 
 
 #endif /* __DPP_FORWARD_H_ */
