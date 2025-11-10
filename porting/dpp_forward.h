@@ -14,6 +14,12 @@
 /* DPP authentication context (stub for kernel port) */
 struct dpp_authentication {
     void *msg_ctx;
+
+    /* Fields needed for dpp_channel_intersect */
+    struct dpp_bootstrap_info *peer_bi;
+    unsigned int freq[50];
+    unsigned int num_freq;
+    unsigned int curr_freq;
 };
 
 /* DPP public action frame type (minimal enum for compilation) */
