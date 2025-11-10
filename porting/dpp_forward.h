@@ -16,6 +16,11 @@ struct dpp_host {
     int af;   /* Address family: AF_INET, AF_INET6, etc. */
 };
 
+/* Dummy DPP curve struct */
+struct dpp_curve {
+    int nonce_len;
+    int hash_len;
+};
 
 /* DPP bootstrap info struct (minimal, just to avoid undefined errors) */
 struct dpp_bootstrap_info {
@@ -49,6 +54,12 @@ struct dpp_authentication {
     unsigned int curr_freq;
     unsigned int freq_idx;        /* Index for iterating over freq[] */
    
+    /* Add missing fields to satisfy dpp.c references */
+    void *global;                     /* expected by dpp_alloc_auth */
+    int conf_resp_status;             /* expected by dpp_alloc_auth */
+    struct dpp_curve *curve;          /* expected by dpp_build_conf_req_attr */
+    unsigned char e_nonce[32];        /* expected by dpp_build_conf_req_attr */
+    unsigned char ke[64];             /* expected by aes_siv_encrypt() call */
      
 };
 
@@ -86,6 +97,11 @@ struct wpa_ip_addr {
 #define DPP_ATTR_STATUS 2  // assign a value; it just needs to exist for compilation
 #define DPP_ATTR_R_BOOTSTRAP_KEY_HASH      3  // Assign the original value from upstream
 #define DPP_VERSION 3  /* needed for compilation */
+
+/* Add missing DPP attribute defines */
+#define DPP_ATTR_ENROLLEE_NONCE       0x1003
+#define DPP_ATTR_CONFIG_ATTR_OBJ      0x1004
+
 
 /* ------------------------------
  * Function prototypes
