@@ -118,7 +118,16 @@ typedef uint16_t u16;
 const u8 *dpp_get_attr(const u8 *buf, size_t len, u16 req_id, u16 *ret_len);
 int dpp_check_attrs(const u8 *buf, size_t len);
 
+struct dpp_global;   /* forward declaration */
 
+
+/* Declare prototypes of functions implemented in dpp.c */
+void dpp_build_attr_status(struct wpabuf *msg, enum dpp_status_error status);
+void dpp_build_attr_r_bootstrap_key_hash(struct wpabuf *msg, const u8 *hash);
+int dpp_prepare_channel_list(struct dpp_authentication *auth,
+                             struct wpabuf *buf, const char *country);
+int dpp_gen_uri(struct dpp_bootstrap_info *bi);
+struct dpp_authentication *dpp_alloc_auth(struct dpp_global *dpp, void *msg_ctx);
 
 
 #endif /* __DPP_FORWARD_H_ */
