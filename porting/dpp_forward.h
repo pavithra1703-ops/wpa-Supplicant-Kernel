@@ -163,7 +163,7 @@ void dpp_write_gas_query(struct wpabuf *buf, struct wpabuf *query);
 
 
 struct wpabuf *dpp_build_conf_req(struct dpp_authentication *auth,
-                                  enum dpp_netrole netrole);
+                                  const char *json);
 
 
 #endif /* __DPP_FORWARD_H_ */
