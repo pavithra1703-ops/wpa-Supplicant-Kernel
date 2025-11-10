@@ -10,7 +10,31 @@
  * Minimal struct and enum stubs
  * ------------------------------ */
 
-#define DPP_VERSION 3  /* needed for compilation */
+struct dpp_host {
+    int af;   /* Address family: AF_INET, AF_INET6, etc. */
+};
+
+
+/* DPP bootstrap info struct (minimal, just to avoid undefined errors) */
+struct dpp_bootstrap_info {
+    void *uri;
+    char *info;
+    void *chan;
+    struct dpp_host *host;
+    void *pk;
+    void *pubkey;
+    void *configurator_params;
+
+    bool channels_listed;
+    size_t num_freq;
+    unsigned int freq[16]; // arbitrary size for kernel stub
+    uint8_t mac_addr[6];
+
+    unsigned int supported_curves;
+    int port;
+    int af;
+};
+
 
 /* DPP authentication context (stub for kernel port) */
 struct dpp_authentication {
@@ -22,8 +46,8 @@ struct dpp_authentication {
     unsigned int num_freq;
     unsigned int curr_freq;
     unsigned int freq_idx;        /* Index for iterating over freq[] */
+   
      
-    int af; 
 };
 
 /* DPP public action frame type (minimal enum for compilation) */
@@ -52,30 +76,13 @@ struct wpa_ip_addr {
     int dummy; // minimal placeholder for compilation
 };
 
-/* DPP bootstrap info struct (minimal, just to avoid undefined errors) */
-struct dpp_bootstrap_info {
-    void *uri;
-    char *info;
-    void *chan;
-    void *host;  
-    void *pk;
-    void *pubkey;
-    void *configurator_params;
-
-    bool channels_listed;
-    size_t num_freq;
-    unsigned int freq[16]; // arbitrary size for kernel stub
-    uint8_t mac_addr[6];
-
-    unsigned int supported_curves;
-    int port; 
-};
 
 #define DPP_TCP_PORT 8888  // arbitrary placeholder value for compilation
 #define DPP_ATTR_WRAPPED_DATA 0x05      // arbitrary value for compilation
 #define DPP_BOOTSTRAP_MAX_FREQ 16       // match size of freq array
 #define DPP_ATTR_STATUS 2  // assign a value; it just needs to exist for compilation
 #define DPP_ATTR_R_BOOTSTRAP_KEY_HASH      3  // Assign the original value from upstream
+#define DPP_VERSION 3  /* needed for compilation */
 
 /* ------------------------------
  * Function prototypes
@@ -108,6 +115,9 @@ typedef uint16_t u16;
 
 const u8 *dpp_get_attr(const u8 *buf, size_t len, u16 req_id, u16 *ret_len);
 int dpp_check_attrs(const u8 *buf, size_t len);
+
+
+
 
 #endif /* __DPP_FORWARD_H_ */
 
