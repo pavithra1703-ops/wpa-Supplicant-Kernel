@@ -208,6 +208,22 @@ struct dpp_configuration {
 #define DPP_AKM_DPP             6
 #define DPP_AKM_DOT1X           7
 
+/* ------------------------------
+ * DPP configuration memory helpers
+ * ------------------------------ */
+static inline void dpp_configuration_free(struct dpp_configuration *conf)
+{
+    /* Minimal stub: free memory if needed */
+    if (!conf)
+        return;
+    if (conf->ssid)
+        free(conf->ssid);
+    if (conf->passphrase)
+        free(conf->passphrase);
+    if (conf->connector)
+        free(conf->connector);
+    free(conf);
+}
 
 
 #endif /* __DPP_FORWARD_H_ */
