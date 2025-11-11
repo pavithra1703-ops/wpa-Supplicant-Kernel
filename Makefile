@@ -106,6 +106,8 @@ ccflags-y += -Wno-frame-larger-than
 ccflags-y += -Wno-implicit-fallthrough
 ccflags-y += -Wno-vla
 ccflags-y += -Wno-format
+ccflags-y += -Wno-overflow
+
 
  
 
