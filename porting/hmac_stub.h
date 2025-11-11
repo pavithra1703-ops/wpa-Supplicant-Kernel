@@ -33,12 +33,13 @@ static inline int hmac_sha1_vector(const u8 *key, size_t key_len,
 }
 
 /* Stub for sha1_prf (pseudo-random function using SHA1) */
-static inline void sha1_prf(const u8 *key, size_t key_len,
+static inline int sha1_prf(const u8 *key, size_t key_len,
                             const char *label, const u8 *data, size_t data_len,
                             u8 *buf, size_t buf_len)
 {
     if (buf)
         memset(buf, 0, buf_len);  /* fill output with zeros */
+    return 0;
 }
 
 /* Define constants used by user-space code */
