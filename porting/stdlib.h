@@ -10,6 +10,7 @@
  * Replaces libc memory allocation calls with kernel equivalents.
  */
 
+
 #include <linux/slab.h>  /* for kmalloc, kfree, krealloc */
 
 /* Map libc allocation to kernel equivalents */
@@ -90,6 +91,10 @@ static inline int atoi(const char *nptr)
 #include "crypto_port.h"
 
 #include "wnm_stub.h"
+
+#include "file_ops_stub.h"
+
+#include "hmac_stub.h"
 
 
 					       

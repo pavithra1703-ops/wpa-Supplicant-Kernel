@@ -107,7 +107,7 @@ ccflags-y += -Wno-implicit-fallthrough
 ccflags-y += -Wno-vla
 ccflags-y += -Wno-format
 ccflags-y += -Wno-overflow
-
+ccflags-y += -Wno-strict-prototypes
 
  
 
