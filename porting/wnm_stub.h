@@ -1,13 +1,7 @@
-/* wnm_stub.h - Kernel-space stub to prevent wnm_btm_reset redefinition */
+#ifndef __WNM_STUB_H
+#define __WNM_STUB_H
 
-#ifndef WNM_STUB_H
-#define WNM_STUB_H
-
-/* Forward declaration of struct wpa_supplicant */
 struct wpa_supplicant;
+void wnm_btm_reset(struct wpa_supplicant *wpa_s);
 
-/* Replace any call to wnm_btm_reset with nothing to avoid redefinition */
-#define wnm_btm_reset(wpa_s)   /* nothing */
-
-#endif /* WNM_STUB_H */
-
+#endif
