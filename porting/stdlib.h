@@ -1,6 +1,10 @@
 #ifndef __STDLIB_H_
 #define __STDLIB_H_
 
+/* Disable WNM entirely for kernel-space build */
+#undef CONFIG_WNM
+#define CONFIG_WNM 0
+
 /*
  * Minimal stdlib.h for kernel-space build of user-space code.
  * Replaces libc memory allocation calls with kernel equivalents.
@@ -57,5 +61,37 @@ static inline int atoi(const char *nptr)
 }
 
 
+#include "pbkdf2.h"
+
+#include "byteswap.h"
+
+#include "qsort.h"
+
+#include "common_macros.h"
+
+#include "printf.h"
+
+#include "vprintf.h"
+
+#include "timeval.h"
+
+#include "random.h"
+
+#include "env.h"
+
+#include "process.h"
+
+#include "select.h"
+
+#include "aes_encrypt.h"
+
+#include "dpp_forward.h"
+
+#include "crypto_port.h"
+
+#include "wnm_stub.h"
+
+
+					       
 #endif 
 
