@@ -22,5 +22,9 @@ static inline int hmac_sha1(const u8 *key, size_t key_len,
     return 0; /* pretend success */
 }
 
+/* Define constants used by user-space code */
+#define MD5_MAC_LEN 16
+#define SHA1_MAC_LEN 20
+
 #endif /* __HMAC_STUB_H */
 
