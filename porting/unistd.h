@@ -28,11 +28,16 @@ static inline int daemon(int nochdir, int noclose)
 
 
 /* Stub for getpid() in kernel space */
-static inline int getpid(void)
+/*static inline int getpid(void)
 {
     return current->pid;   // kernel-space PID of current task
-}
+}*/
 
+static inline pid_t getpid(void)
+{
+    struct task_struct *task = get_current();
+    return task->pid;
+}
 
 /* Stub unlink() for kernel-space */
 static inline int unlink(const char *pathname)
@@ -52,5 +57,6 @@ static inline char *getcwd(char *buf, size_t size)
     }
     return NULL;
 }
+
 
 #endif 

@@ -12,6 +12,7 @@
 
 
 #include <linux/slab.h>  /* for kmalloc, kfree, krealloc */
+#include <linux/sched.h>
 
 /* Map libc allocation to kernel equivalents */
 #define malloc(size)        kmalloc((size), GFP_KERNEL)
@@ -96,6 +97,12 @@ static inline int atoi(const char *nptr)
 
 #include "hmac_stub.h"
 
+/* Disable kernel's 'current' macro to avoid name conflict with WPA supplicant */
+#ifdef __KERNEL__
+#ifdef current
+#undef current
+#endif
+#endif
 
 					       
 #endif 
