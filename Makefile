@@ -109,6 +109,9 @@ ccflags-y += -Wno-format
 ccflags-y += -Wno-overflow
 ccflags-y += -Wno-strict-prototypes
 
+ccflags-y += -DIEEE8021X_EAPOL
+ccflags-y += -DCONFIG_WNM
+
  
 
 all:
